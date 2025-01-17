@@ -1,6 +1,7 @@
 name: Pull Request Message
 on:
   pull_request:
+    paths: [features/*]
     types: [opened]
 jobs:
   comment:
@@ -14,5 +15,5 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           message: |
-            I appreciate your comment! :wave:
+            I appreciate your comment! :wave: :fire:
           reactions: eyes, rocket
