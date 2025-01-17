@@ -1,0 +1,15 @@
+name: Pull Request Message
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  comment:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Comment on pull request 
+        uses: peter-evans/comment@v1 
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: 'Thank you for your pull request! We appreciate your
+contribution. Please ensure your code follows the project's
+guidelines.'
