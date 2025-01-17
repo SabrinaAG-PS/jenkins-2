@@ -4,12 +4,15 @@ on:
     types: [opened]
 jobs:
   comment:
+    permissions: write-all
     runs-on: ubuntu-latest 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Comment on pull request 
-        uses: peter-evans/comment@v1 
+        uses: thollander/actions-comment-pull-request@v3 
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: 'Thank you for your pull request! We appreciate your
-contribution. Please ensure your code follows the project's
-guidelines.'
+          message: |
+            I appreciate your comment! :wave:
+          reactions: eyes, rocket
